@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://h8lbasm0wmwb"]
+
+[ext_resource type="Script" uid="uid://cjqbgdwnv18hi" path="res://npc.gd" id="1_xxcha"]
+[ext_resource type="Texture2D" uid="uid://b7vyrl3nt70iv" path="res://kenney_micro-roguelike/Tiles/Colored/tile_0004.png" id="2_kh24r"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0hol4"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Npc" type="Node2D" parent="."]
+position = Vector2(123, 200)
+script = ExtResource("1_xxcha")
+
+[node name="Sprite2D" type="Sprite2D" parent="Npc"]
+scale = Vector2(0.88101, 1.03619)
+texture = ExtResource("2_kh24r")
+
+[node name="Area2D" type="Area2D" parent="Npc"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Npc/Area2D"]
+scale = Vector2(3, 3)
+shape = SubResource("CircleShape2D_0hol4")
+
+[node name="Label" type="Label" parent="Npc"]
+offset_left = -27.0
+offset_top = -28.0
+offset_right = 28.0
+offset_bottom = -5.0
+text = "Press E"

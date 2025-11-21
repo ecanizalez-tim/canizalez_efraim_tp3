@@ -1,0 +1,1308 @@
+[gd_scene load_steps=39 format=3 uid="uid://csi7yy0yrvmbr"]
+
+[ext_resource type="Script" uid="uid://cgona8p0iwh1l" path="res://character_body_2d.gd" id="1_midqc"]
+[ext_resource type="Script" uid="uid://dbf3ww6m04hlr" path="res://niveau_1.gd" id="1_qirib"]
+[ext_resource type="Texture2D" uid="uid://b7oappnkgkuvr" path="res://kenney_micro-roguelike/Tiles/Colored/tile_0150.png" id="3_cte38"]
+[ext_resource type="Texture2D" uid="uid://bebvc45drc6i3" path="res://kenney_1-bit-pack/Tilesheet/colored-transparent.png" id="3_qirib"]
+[ext_resource type="Script" uid="uid://b8vn38neq3iha" path="res://camera_2d.gd" id="3_tba4h"]
+[ext_resource type="Texture2D" uid="uid://der7gxrmbghel" path="res://kenney_micro-roguelike/Tiles/Colored/tile_0153.png" id="4_tba4h"]
+[ext_resource type="Texture2D" uid="uid://lh4wtdo8240r" path="res://kenney_micro-roguelike/Tiles/Colored/tile_0145.png" id="5_h3rij"]
+[ext_resource type="PackedScene" uid="uid://dvlmp2clu1m04" path="res://menu_pause.tscn" id="5_yysgw"]
+[ext_resource type="Texture2D" uid="uid://yvdw0wrhng5b" path="res://kenney_micro-roguelike/Tiles/Colored/tile_0148.png" id="6_qirib"]
+[ext_resource type="Texture2D" uid="uid://bk6vmodst6qg2" path="res://kenney_micro-roguelike/Tiles/Colored/tile_0144.png" id="7_yysgw"]
+[ext_resource type="Texture2D" uid="uid://bfeyq5qiabds" path="res://kenney_micro-roguelike/Tiles/Colored/tile_0147.png" id="8_2db7c"]
+[ext_resource type="Script" uid="uid://dbu14wq1dqhw1" path="res://dialogue_box.gd" id="12_yysgw"]
+[ext_resource type="Texture2D" uid="uid://b7vyrl3nt70iv" path="res://kenney_micro-roguelike/Tiles/Colored/tile_0004.png" id="13_2db7c"]
+[ext_resource type="Script" uid="uid://cjqbgdwnv18hi" path="res://npc.gd" id="13_b8t6s"]
+[ext_resource type="Script" uid="uid://cerxiifaelftb" path="res://door.gd" id="15_rm7ey"]
+[ext_resource type="Script" uid="uid://biy6dml50r7y4" path="res://game_manager.gd" id="16_xmwx5"]
+[ext_resource type="AudioStream" uid="uid://c6y0rr04ojcmo" path="res://winning-218995.mp3" id="17_lvlku"]
+[ext_resource type="AudioStream" uid="uid://crb1f2fvngdmr" path="res://fail-234710.mp3" id="18_bn01m"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qirib"]
+atlas = ExtResource("3_qirib")
+region = Rect2(306, 119, 17, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2db7c"]
+atlas = ExtResource("3_qirib")
+region = Rect2(391, 119, 17, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yysgw"]
+atlas = ExtResource("3_qirib")
+region = Rect2(306, 119, 17, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b8t6s"]
+atlas = ExtResource("3_qirib")
+region = Rect2(306, 119, 17, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rm7ey"]
+atlas = ExtResource("3_qirib")
+region = Rect2(340, 119, 17, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xmwx5"]
+atlas = ExtResource("3_qirib")
+region = Rect2(357, 119, 17, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cdtrv"]
+atlas = ExtResource("3_qirib")
+region = Rect2(374, 119, 17, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lvlku"]
+atlas = ExtResource("3_qirib")
+region = Rect2(306, 119, 17, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bn01m"]
+atlas = ExtResource("3_qirib")
+region = Rect2(323, 119, 17, 17)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_w8phw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qirib")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2db7c")
+}],
+"loop": true,
+"name": &"dead",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yysgw")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b8t6s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rm7ey")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xmwx5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cdtrv")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lvlku")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bn01m")
+}],
+"loop": true,
+"name": &"walk_down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lvlku")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bn01m")
+}],
+"loop": true,
+"name": &"walk_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lvlku")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bn01m")
+}],
+"loop": true,
+"name": &"walk_right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lvlku")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bn01m")
+}],
+"loop": true,
+"name": &"walk_up",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qirib"]
+radius = 6.0
+height = 14.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2db7c"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_midqc"]
+size = Vector2(8, 391)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rbhar"]
+size = Vector2(445, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w8phw"]
+size = Vector2(192, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_neqgn"]
+size = Vector2(8, 256)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pvqrr"]
+size = Vector2(123, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ly748"]
+size = Vector2(8, 133.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qirib"]
+size = Vector2(253, 7)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b8t6s"]
+size = Vector2(64, 20)
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_qirib")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." groups=["player"]]
+position = Vector2(128, 322)
+motion_mode = 1
+script = ExtResource("1_midqc")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
+sprite_frames = SubResource("SpriteFrames_w8phw")
+animation = &"walk_right"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+shape = SubResource("CapsuleShape2D_qirib")
+
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
+zoom = Vector2(5.23, 5.23)
+limit_left = 1
+limit_top = 0
+limit_right = 446
+limit_bottom = 393
+position_smoothing_enabled = true
+position_smoothing_speed = 8.0
+editor_draw_limits = true
+script = ExtResource("3_tba4h")
+smoothing_speed = 8.0
+
+[node name="Control" parent="CharacterBody2D/Camera2D" instance=ExtResource("5_yysgw")]
+visible = false
+z_index = 2
+offset_left = -33.0
+offset_top = -19.0
+offset_right = -33.0
+offset_bottom = -19.0
+
+[node name="Npc" type="Node2D" parent="."]
+position = Vector2(123, 200)
+script = ExtResource("13_b8t6s")
+
+[node name="Sprite2D" type="Sprite2D" parent="Npc"]
+scale = Vector2(0.88101, 1.03619)
+texture = ExtResource("13_2db7c")
+
+[node name="Area2D" type="Area2D" parent="Npc"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Npc/Area2D"]
+scale = Vector2(3, 3)
+shape = SubResource("CircleShape2D_2db7c")
+
+[node name="Label" type="Label" parent="Npc"]
+offset_left = -27.0
+offset_top = -28.0
+offset_right = 28.0
+offset_bottom = -5.0
+text = "Press E"
+
+[node name="DialogueBox" type="CanvasLayer" parent="." groups=["dialogue_ui"]]
+layer = 10
+script = ExtResource("12_yysgw")
+
+[node name="Panel" type="Panel" parent="DialogueBox"]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = 120.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="DialogueBox/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Text" type="RichTextLabel" parent="DialogueBox/Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+bbcode_enabled = true
+scroll_active = false
+autowrap_mode = 2
+
+[node name="Hint" type="Label" parent="DialogueBox/Panel/VBoxContainer"]
+layout_mode = 2
+horizontal_alignment = 2
+
+[node name="Walls" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls"]
+position = Vector2(4, 195.5)
+shape = SubResource("RectangleShape2D_midqc")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Walls"]
+position = Vector2(222.5, 4)
+shape = SubResource("RectangleShape2D_rbhar")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="Walls"]
+position = Vector2(160, 260)
+shape = SubResource("RectangleShape2D_w8phw")
+
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="Walls"]
+position = Vector2(441, 132)
+shape = SubResource("RectangleShape2D_neqgn")
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="Walls"]
+position = Vector2(381.5, 260)
+shape = SubResource("RectangleShape2D_pvqrr")
+
+[node name="CollisionShape2D9" type="CollisionShape2D" parent="Walls"]
+position = Vector2(252, 325.25)
+shape = SubResource("RectangleShape2D_ly748")
+
+[node name="CollisionShape2D10" type="CollisionShape2D" parent="Walls"]
+position = Vector2(324, 325)
+shape = SubResource("RectangleShape2D_ly748")
+
+[node name="CollisionShape2D13" type="CollisionShape2D" parent="Walls"]
+position = Vector2(128.5, 387.5)
+shape = SubResource("RectangleShape2D_qirib")
+
+[node name="Tiles" type="CanvasGroup" parent="."]
+
+[node name="Tile0388" type="Sprite2D" parent="Tiles"]
+position = Vector2(436, 4)
+texture = ExtResource("5_h3rij")
+
+[node name="Tile0389" type="Sprite2D" parent="Tiles"]
+position = Vector2(428, 4)
+texture = ExtResource("5_h3rij")
+
+[node name="Tile0390" type="Sprite2D" parent="Tiles"]
+position = Vector2(420, 4)
+texture = ExtResource("5_h3rij")
+
+[node name="Tile0391" type="Sprite2D" parent="Tiles"]
+position = Vector2(412, 4)
+texture = ExtResource("5_h3rij")
+
+[node name="Tile0392" type="Sprite2D" parent="Tiles"]
+position = Vector2(404, 4)
+texture = ExtResource("5_h3rij")
+
+[node name="Tile0393" type="Sprite2D" parent="Tiles"]
+position = Vector2(396, 4)
+texture = ExtResource("5_h3rij")
+
+[node name="Tile0394" type="Sprite2D" parent="Tiles"]
+position = Vector2(388, 4)
+texture = ExtResource("5_h3rij")
+
+[node name="Tile0395" type="Sprite2D" parent="Tiles"]
+position = Vector2(380, 4)
+texture = ExtResource("5_h3rij")
+
+[node name="Tile0396" type="Sprite2D" parent="Tiles"]
+position = Vector2(372, 4)
+texture = ExtResource("5_h3rij")
+
+[node name="Tile0397" type="Sprite2D" parent="Tiles"]
+position = Vector2(364, 4)
+texture = ExtResource("5_h3rij")
+
+[node name="Tile0398" type="Sprite2D" parent="Tiles"]
+position = Vector2(364, 4)
+texture = ExtResource("5_h3rij")
+
+[node name="Tile0399" type="Sprite2D" parent="Tiles"]
+position = Vector2(356, 4)
+texture = ExtResource("5_h3rij")
+
+[node name="Tile0400" type="Sprite2D" parent="Tiles"]
+position = Vector2(348, 4)
+texture = ExtResource("5_h3rij")
+
+[node name="Tile0401" type="Sprite2D" parent="Tiles"]
+position = Vector2(340, 4)
+texture = ExtResource("5_h3rij")
+
+[node name="Tile0402" type="Sprite2D" parent="Tiles"]
+position = Vector2(332, 4)
+texture = ExtResource("5_h3rij")
+
+[node name="Tile0403" type="Sprite2D" parent="Tiles"]
+position = Vector2(324, 4)
+texture = ExtResource("5_h3rij")
+
+[node name="Tile0404" type="Sprite2D" parent="Tiles"]
+position = Vector2(316, 4)
+texture = ExtResource("5_h3rij")
+
+[node name="Tile0405" type="Sprite2D" parent="Tiles"]
+position = Vector2(308, 4)
+texture = ExtResource("5_h3rij")
+
+[node name="Tile0406" type="Sprite2D" parent="Tiles"]
+position = Vector2(300, 4)
+texture = ExtResource("5_h3rij")
+
+[node name="Tile0407" type="Sprite2D" parent="Tiles"]
+position = Vector2(292, 4)
+texture = ExtResource("5_h3rij")
+
+[node name="Tile0408" type="Sprite2D" parent="Tiles"]
+position = Vector2(284, 4)
+texture = ExtResource("5_h3rij")
+
+[node name="Tile0409" type="Sprite2D" parent="Tiles"]
+position = Vector2(284, 4)
+texture = ExtResource("5_h3rij")
+
+[node name="Tile0410" type="Sprite2D" parent="Tiles"]
+position = Vector2(276, 4)
+texture = ExtResource("5_h3rij")
+
+[node name="Tile0411" type="Sprite2D" parent="Tiles"]
+position = Vector2(268, 4)
+texture = ExtResource("5_h3rij")
+
+[node name="Tile0412" type="Sprite2D" parent="Tiles"]
+position = Vector2(260, 4)
+texture = ExtResource("5_h3rij")
+
+[node name="Tile0413" type="Sprite2D" parent="Tiles"]
+position = Vector2(252, 4)
+texture = ExtResource("5_h3rij")
+
+[node name="Tile0414" type="Sprite2D" parent="Tiles"]
+position = Vector2(236, 4)
+texture = ExtResource("5_h3rij")
+
+[node name="Tile0415" type="Sprite2D" parent="Tiles"]
+position = Vector2(228, 4)
+texture = ExtResource("5_h3rij")
+
+[node name="Tile0416" type="Sprite2D" parent="Tiles"]
+position = Vector2(228, 4)
+texture = ExtResource("5_h3rij")
+
+[node name="Tile0417" type="Sprite2D" parent="Tiles"]
+position = Vector2(220, 4)
+texture = ExtResource("5_h3rij")
+
+[node name="Tile0418" type="Sprite2D" parent="Tiles"]
+position = Vector2(212, 4)
+texture = ExtResource("5_h3rij")
+
+[node name="Tile0419" type="Sprite2D" parent="Tiles"]
+position = Vector2(204, 4)
+texture = ExtResource("5_h3rij")
+
+[node name="Tile0420" type="Sprite2D" parent="Tiles"]
+position = Vector2(196, 4)
+texture = ExtResource("5_h3rij")
+
+[node name="Tile0421" type="Sprite2D" parent="Tiles"]
+position = Vector2(188, 4)
+texture = ExtResource("5_h3rij")
+
+[node name="Tile0422" type="Sprite2D" parent="Tiles"]
+position = Vector2(180, 4)
+texture = ExtResource("5_h3rij")
+
+[node name="Tile0423" type="Sprite2D" parent="Tiles"]
+position = Vector2(172, 4)
+texture = ExtResource("5_h3rij")
+
+[node name="Tile0424" type="Sprite2D" parent="Tiles"]
+position = Vector2(164, 4)
+texture = ExtResource("5_h3rij")
+
+[node name="Tile0425" type="Sprite2D" parent="Tiles"]
+position = Vector2(156, 4)
+texture = ExtResource("5_h3rij")
+
+[node name="Tile0426" type="Sprite2D" parent="Tiles"]
+position = Vector2(148, 4)
+texture = ExtResource("5_h3rij")
+
+[node name="Tile0427" type="Sprite2D" parent="Tiles"]
+position = Vector2(148, 4)
+texture = ExtResource("5_h3rij")
+
+[node name="Tile0428" type="Sprite2D" parent="Tiles"]
+position = Vector2(140, 4)
+texture = ExtResource("5_h3rij")
+
+[node name="Tile0429" type="Sprite2D" parent="Tiles"]
+position = Vector2(132, 4)
+texture = ExtResource("5_h3rij")
+
+[node name="Tile0430" type="Sprite2D" parent="Tiles"]
+position = Vector2(124, 4)
+texture = ExtResource("5_h3rij")
+
+[node name="Tile0431" type="Sprite2D" parent="Tiles"]
+position = Vector2(116, 4)
+texture = ExtResource("5_h3rij")
+
+[node name="Tile0432" type="Sprite2D" parent="Tiles"]
+position = Vector2(108, 4)
+texture = ExtResource("5_h3rij")
+
+[node name="Tile0433" type="Sprite2D" parent="Tiles"]
+position = Vector2(100, 4)
+texture = ExtResource("5_h3rij")
+
+[node name="Tile0434" type="Sprite2D" parent="Tiles"]
+position = Vector2(92, 4)
+texture = ExtResource("5_h3rij")
+
+[node name="Tile0435" type="Sprite2D" parent="Tiles"]
+position = Vector2(84, 4)
+texture = ExtResource("5_h3rij")
+
+[node name="Tile0436" type="Sprite2D" parent="Tiles"]
+position = Vector2(76, 4)
+texture = ExtResource("5_h3rij")
+
+[node name="Tile0437" type="Sprite2D" parent="Tiles"]
+position = Vector2(68, 4)
+texture = ExtResource("5_h3rij")
+
+[node name="Tile0438" type="Sprite2D" parent="Tiles"]
+position = Vector2(60, 4)
+texture = ExtResource("5_h3rij")
+
+[node name="Tile0439" type="Sprite2D" parent="Tiles"]
+position = Vector2(52, 4)
+texture = ExtResource("5_h3rij")
+
+[node name="Tile0440" type="Sprite2D" parent="Tiles"]
+position = Vector2(44, 4)
+texture = ExtResource("5_h3rij")
+
+[node name="Tile0442" type="Sprite2D" parent="Tiles"]
+position = Vector2(36, 4)
+texture = ExtResource("5_h3rij")
+
+[node name="Tile0443" type="Sprite2D" parent="Tiles"]
+position = Vector2(28, 4)
+texture = ExtResource("5_h3rij")
+
+[node name="Tile0444" type="Sprite2D" parent="Tiles"]
+position = Vector2(20, 4)
+texture = ExtResource("5_h3rij")
+
+[node name="Tile0445" type="Sprite2D" parent="Tiles"]
+position = Vector2(12, 4)
+texture = ExtResource("5_h3rij")
+
+[node name="Tile0447" type="Sprite2D" parent="Tiles"]
+position = Vector2(244, 4)
+texture = ExtResource("5_h3rij")
+
+[node name="Tile0335" type="Sprite2D" parent="Tiles"]
+position = Vector2(4, 380)
+texture = ExtResource("6_qirib")
+
+[node name="Tile0336" type="Sprite2D" parent="Tiles"]
+position = Vector2(4, 372)
+texture = ExtResource("6_qirib")
+
+[node name="Tile0337" type="Sprite2D" parent="Tiles"]
+position = Vector2(4, 364)
+texture = ExtResource("6_qirib")
+
+[node name="Tile0338" type="Sprite2D" parent="Tiles"]
+position = Vector2(4, 356)
+texture = ExtResource("6_qirib")
+
+[node name="Tile0339" type="Sprite2D" parent="Tiles"]
+position = Vector2(4, 348)
+texture = ExtResource("6_qirib")
+
+[node name="Tile0340" type="Sprite2D" parent="Tiles"]
+position = Vector2(4, 340)
+texture = ExtResource("6_qirib")
+
+[node name="Tile0341" type="Sprite2D" parent="Tiles"]
+position = Vector2(4, 332)
+texture = ExtResource("6_qirib")
+
+[node name="Tile0342" type="Sprite2D" parent="Tiles"]
+position = Vector2(4, 324)
+texture = ExtResource("6_qirib")
+
+[node name="Tile0343" type="Sprite2D" parent="Tiles"]
+position = Vector2(4, 316)
+texture = ExtResource("6_qirib")
+
+[node name="Tile0344" type="Sprite2D" parent="Tiles"]
+position = Vector2(4, 308)
+texture = ExtResource("6_qirib")
+
+[node name="Tile0345" type="Sprite2D" parent="Tiles"]
+position = Vector2(4, 300)
+texture = ExtResource("6_qirib")
+
+[node name="Tile0346" type="Sprite2D" parent="Tiles"]
+position = Vector2(4, 292)
+texture = ExtResource("6_qirib")
+
+[node name="Tile0347" type="Sprite2D" parent="Tiles"]
+position = Vector2(4, 284)
+texture = ExtResource("6_qirib")
+
+[node name="Tile0348" type="Sprite2D" parent="Tiles"]
+position = Vector2(4, 276)
+texture = ExtResource("6_qirib")
+
+[node name="Tile0349" type="Sprite2D" parent="Tiles"]
+position = Vector2(4, 268)
+texture = ExtResource("6_qirib")
+
+[node name="Tile0350" type="Sprite2D" parent="Tiles"]
+position = Vector2(4, 260)
+texture = ExtResource("6_qirib")
+
+[node name="Tile0351" type="Sprite2D" parent="Tiles"]
+position = Vector2(4, 252)
+texture = ExtResource("6_qirib")
+
+[node name="Tile0352" type="Sprite2D" parent="Tiles"]
+position = Vector2(4, 244)
+texture = ExtResource("6_qirib")
+
+[node name="Tile0353" type="Sprite2D" parent="Tiles"]
+position = Vector2(4, 236)
+texture = ExtResource("6_qirib")
+
+[node name="Tile0354" type="Sprite2D" parent="Tiles"]
+position = Vector2(4, 228)
+texture = ExtResource("6_qirib")
+
+[node name="Tile0355" type="Sprite2D" parent="Tiles"]
+position = Vector2(4, 220)
+texture = ExtResource("6_qirib")
+
+[node name="Tile0356" type="Sprite2D" parent="Tiles"]
+position = Vector2(4, 212)
+texture = ExtResource("6_qirib")
+
+[node name="Tile0357" type="Sprite2D" parent="Tiles"]
+position = Vector2(4, 204)
+texture = ExtResource("6_qirib")
+
+[node name="Tile0358" type="Sprite2D" parent="Tiles"]
+position = Vector2(4, 196)
+texture = ExtResource("6_qirib")
+
+[node name="Tile0359" type="Sprite2D" parent="Tiles"]
+position = Vector2(4, 188)
+texture = ExtResource("6_qirib")
+
+[node name="Tile0360" type="Sprite2D" parent="Tiles"]
+position = Vector2(4, 180)
+texture = ExtResource("6_qirib")
+
+[node name="Tile0361" type="Sprite2D" parent="Tiles"]
+position = Vector2(4, 172)
+texture = ExtResource("6_qirib")
+
+[node name="Tile0362" type="Sprite2D" parent="Tiles"]
+position = Vector2(4, 164)
+texture = ExtResource("6_qirib")
+
+[node name="Tile0363" type="Sprite2D" parent="Tiles"]
+position = Vector2(4, 156)
+texture = ExtResource("6_qirib")
+
+[node name="Tile0364" type="Sprite2D" parent="Tiles"]
+position = Vector2(4, 148)
+texture = ExtResource("6_qirib")
+
+[node name="Tile0365" type="Sprite2D" parent="Tiles"]
+position = Vector2(4, 140)
+texture = ExtResource("6_qirib")
+
+[node name="Tile0366" type="Sprite2D" parent="Tiles"]
+position = Vector2(4, 132)
+texture = ExtResource("6_qirib")
+
+[node name="Tile0367" type="Sprite2D" parent="Tiles"]
+position = Vector2(4, 124)
+texture = ExtResource("6_qirib")
+
+[node name="Tile0368" type="Sprite2D" parent="Tiles"]
+position = Vector2(4, 116)
+texture = ExtResource("6_qirib")
+
+[node name="Tile0369" type="Sprite2D" parent="Tiles"]
+position = Vector2(4, 108)
+texture = ExtResource("6_qirib")
+
+[node name="Tile0370" type="Sprite2D" parent="Tiles"]
+position = Vector2(4, 100)
+texture = ExtResource("6_qirib")
+
+[node name="Tile0371" type="Sprite2D" parent="Tiles"]
+position = Vector2(4, 92)
+texture = ExtResource("6_qirib")
+
+[node name="Tile0372" type="Sprite2D" parent="Tiles"]
+position = Vector2(4, 84)
+texture = ExtResource("6_qirib")
+
+[node name="Tile0373" type="Sprite2D" parent="Tiles"]
+position = Vector2(4, 76)
+texture = ExtResource("6_qirib")
+
+[node name="Tile0374" type="Sprite2D" parent="Tiles"]
+position = Vector2(4, 68)
+texture = ExtResource("6_qirib")
+
+[node name="Tile0375" type="Sprite2D" parent="Tiles"]
+position = Vector2(4, 60)
+texture = ExtResource("6_qirib")
+
+[node name="Tile0376" type="Sprite2D" parent="Tiles"]
+position = Vector2(4, 52)
+texture = ExtResource("6_qirib")
+
+[node name="Tile0377" type="Sprite2D" parent="Tiles"]
+position = Vector2(4, 44)
+texture = ExtResource("6_qirib")
+
+[node name="Tile0378" type="Sprite2D" parent="Tiles"]
+position = Vector2(4, 36)
+texture = ExtResource("6_qirib")
+
+[node name="Tile0379" type="Sprite2D" parent="Tiles"]
+position = Vector2(4, 28)
+texture = ExtResource("6_qirib")
+
+[node name="Tile0644" type="Sprite2D" parent="Tiles"]
+position = Vector2(441, 28)
+texture = ExtResource("6_qirib")
+
+[node name="Tile0645" type="Sprite2D" parent="Tiles"]
+position = Vector2(441, 20)
+texture = ExtResource("6_qirib")
+
+[node name="Tile0779" type="Sprite2D" parent="Tiles"]
+position = Vector2(441, 8)
+texture = ExtResource("6_qirib")
+
+[node name="Tile0780" type="Sprite2D" parent="Tiles"]
+position = Vector2(441, 13)
+texture = ExtResource("6_qirib")
+
+[node name="Tile0744" type="Sprite2D" parent="Tiles"]
+position = Vector2(441, 252)
+texture = ExtResource("6_qirib")
+
+[node name="Tile0745" type="Sprite2D" parent="Tiles"]
+position = Vector2(441, 244)
+texture = ExtResource("6_qirib")
+
+[node name="Tile0746" type="Sprite2D" parent="Tiles"]
+position = Vector2(441, 236)
+texture = ExtResource("6_qirib")
+
+[node name="Tile0754" type="Sprite2D" parent="Tiles"]
+position = Vector2(441, 228)
+texture = ExtResource("6_qirib")
+
+[node name="Tile0755" type="Sprite2D" parent="Tiles"]
+position = Vector2(441, 220)
+texture = ExtResource("6_qirib")
+
+[node name="Tile0756" type="Sprite2D" parent="Tiles"]
+position = Vector2(441, 212)
+texture = ExtResource("6_qirib")
+
+[node name="Tile0757" type="Sprite2D" parent="Tiles"]
+position = Vector2(441, 204)
+texture = ExtResource("6_qirib")
+
+[node name="Tile0758" type="Sprite2D" parent="Tiles"]
+position = Vector2(441, 196)
+texture = ExtResource("6_qirib")
+
+[node name="Tile0759" type="Sprite2D" parent="Tiles"]
+position = Vector2(441, 188)
+texture = ExtResource("6_qirib")
+
+[node name="Tile0760" type="Sprite2D" parent="Tiles"]
+position = Vector2(441, 180)
+texture = ExtResource("6_qirib")
+
+[node name="Tile0761" type="Sprite2D" parent="Tiles"]
+position = Vector2(441, 172)
+texture = ExtResource("6_qirib")
+
+[node name="Tile0762" type="Sprite2D" parent="Tiles"]
+position = Vector2(441, 164)
+texture = ExtResource("6_qirib")
+
+[node name="Tile0763" type="Sprite2D" parent="Tiles"]
+position = Vector2(441, 156)
+texture = ExtResource("6_qirib")
+
+[node name="Tile0764" type="Sprite2D" parent="Tiles"]
+position = Vector2(441, 148)
+texture = ExtResource("6_qirib")
+
+[node name="Tile0765" type="Sprite2D" parent="Tiles"]
+position = Vector2(441, 140)
+texture = ExtResource("6_qirib")
+
+[node name="Tile0766" type="Sprite2D" parent="Tiles"]
+position = Vector2(441, 132)
+texture = ExtResource("6_qirib")
+
+[node name="Tile0767" type="Sprite2D" parent="Tiles"]
+position = Vector2(441, 124)
+texture = ExtResource("6_qirib")
+
+[node name="Tile0768" type="Sprite2D" parent="Tiles"]
+position = Vector2(441, 116)
+texture = ExtResource("6_qirib")
+
+[node name="Tile0769" type="Sprite2D" parent="Tiles"]
+position = Vector2(441, 108)
+texture = ExtResource("6_qirib")
+
+[node name="Tile0770" type="Sprite2D" parent="Tiles"]
+position = Vector2(441, 100)
+texture = ExtResource("6_qirib")
+
+[node name="Tile0771" type="Sprite2D" parent="Tiles"]
+position = Vector2(441, 92)
+texture = ExtResource("6_qirib")
+
+[node name="Tile0772" type="Sprite2D" parent="Tiles"]
+position = Vector2(441, 84)
+texture = ExtResource("6_qirib")
+
+[node name="Tile0773" type="Sprite2D" parent="Tiles"]
+position = Vector2(441, 76)
+texture = ExtResource("6_qirib")
+
+[node name="Tile0774" type="Sprite2D" parent="Tiles"]
+position = Vector2(441, 68)
+texture = ExtResource("6_qirib")
+
+[node name="Tile0775" type="Sprite2D" parent="Tiles"]
+position = Vector2(441, 60)
+texture = ExtResource("6_qirib")
+
+[node name="Tile0776" type="Sprite2D" parent="Tiles"]
+position = Vector2(441, 52)
+texture = ExtResource("6_qirib")
+
+[node name="Tile0777" type="Sprite2D" parent="Tiles"]
+position = Vector2(441, 44)
+texture = ExtResource("6_qirib")
+
+[node name="Tile0778" type="Sprite2D" parent="Tiles"]
+position = Vector2(441, 36)
+texture = ExtResource("6_qirib")
+
+[node name="Tile0749" type="Sprite2D" parent="Tiles"]
+position = Vector2(324, 276)
+texture = ExtResource("6_qirib")
+
+[node name="Tile0750" type="Sprite2D" parent="Tiles"]
+position = Vector2(324, 268)
+texture = ExtResource("6_qirib")
+
+[node name="Tile0686" type="Sprite2D" parent="Tiles"]
+position = Vector2(252, 372)
+texture = ExtResource("6_qirib")
+
+[node name="Tile0687" type="Sprite2D" parent="Tiles"]
+position = Vector2(252, 364)
+texture = ExtResource("6_qirib")
+
+[node name="Tile0688" type="Sprite2D" parent="Tiles"]
+position = Vector2(252, 356)
+texture = ExtResource("6_qirib")
+
+[node name="Tile0689" type="Sprite2D" parent="Tiles"]
+position = Vector2(252, 348)
+texture = ExtResource("6_qirib")
+
+[node name="Tile0690" type="Sprite2D" parent="Tiles"]
+position = Vector2(252, 340)
+texture = ExtResource("6_qirib")
+
+[node name="Tile0691" type="Sprite2D" parent="Tiles"]
+position = Vector2(252, 332)
+texture = ExtResource("6_qirib")
+
+[node name="Tile0692" type="Sprite2D" parent="Tiles"]
+position = Vector2(252, 324)
+texture = ExtResource("6_qirib")
+
+[node name="Tile0693" type="Sprite2D" parent="Tiles"]
+position = Vector2(252, 316)
+texture = ExtResource("6_qirib")
+
+[node name="Tile0694" type="Sprite2D" parent="Tiles"]
+position = Vector2(252, 308)
+texture = ExtResource("6_qirib")
+
+[node name="Tile0695" type="Sprite2D" parent="Tiles"]
+position = Vector2(252, 300)
+texture = ExtResource("6_qirib")
+
+[node name="Tile0696" type="Sprite2D" parent="Tiles"]
+position = Vector2(252, 292)
+texture = ExtResource("6_qirib")
+
+[node name="Tile0697" type="Sprite2D" parent="Tiles"]
+position = Vector2(252, 284)
+texture = ExtResource("6_qirib")
+
+[node name="Tile0698" type="Sprite2D" parent="Tiles"]
+position = Vector2(252, 276)
+texture = ExtResource("6_qirib")
+
+[node name="Tile0699" type="Sprite2D" parent="Tiles"]
+position = Vector2(252, 268)
+texture = ExtResource("6_qirib")
+
+[node name="Tile0713" type="Sprite2D" parent="Tiles"]
+position = Vector2(252, 380)
+texture = ExtResource("6_qirib")
+
+[node name="Tile0727" type="Sprite2D" parent="Tiles"]
+position = Vector2(252, 380)
+texture = ExtResource("6_qirib")
+
+[node name="Tile0380" type="Sprite2D" parent="Tiles"]
+position = Vector2(4, 20)
+texture = ExtResource("6_qirib")
+
+[node name="Tile0381" type="Sprite2D" parent="Tiles"]
+position = Vector2(4, 12)
+texture = ExtResource("6_qirib")
+
+[node name="Tile0144" type="Sprite2D" parent="Tiles"]
+position = Vector2(4, 4)
+texture = ExtResource("7_yysgw")
+
+[node name="Tile0874" type="Sprite2D" parent="Tiles"]
+position = Vector2(244, 260)
+texture = ExtResource("5_h3rij")
+
+[node name="Tile0875" type="Sprite2D" parent="Tiles"]
+position = Vector2(236, 260)
+texture = ExtResource("5_h3rij")
+
+[node name="Tile0876" type="Sprite2D" parent="Tiles"]
+position = Vector2(228, 260)
+texture = ExtResource("5_h3rij")
+
+[node name="Tile0877" type="Sprite2D" parent="Tiles"]
+position = Vector2(220, 260)
+texture = ExtResource("5_h3rij")
+
+[node name="Tile0878" type="Sprite2D" parent="Tiles"]
+position = Vector2(212, 260)
+texture = ExtResource("5_h3rij")
+
+[node name="Tile0879" type="Sprite2D" parent="Tiles"]
+position = Vector2(204, 260)
+texture = ExtResource("5_h3rij")
+
+[node name="Tile0880" type="Sprite2D" parent="Tiles"]
+position = Vector2(196, 260)
+texture = ExtResource("5_h3rij")
+
+[node name="Tile0881" type="Sprite2D" parent="Tiles"]
+position = Vector2(188, 260)
+texture = ExtResource("5_h3rij")
+
+[node name="Tile0882" type="Sprite2D" parent="Tiles"]
+position = Vector2(180, 260)
+texture = ExtResource("5_h3rij")
+
+[node name="Tile0883" type="Sprite2D" parent="Tiles"]
+position = Vector2(172, 260)
+texture = ExtResource("5_h3rij")
+
+[node name="Tile0884" type="Sprite2D" parent="Tiles"]
+position = Vector2(164, 260)
+texture = ExtResource("5_h3rij")
+
+[node name="Tile0885" type="Sprite2D" parent="Tiles"]
+position = Vector2(156, 260)
+texture = ExtResource("5_h3rij")
+
+[node name="Tile0886" type="Sprite2D" parent="Tiles"]
+position = Vector2(148, 260)
+texture = ExtResource("5_h3rij")
+
+[node name="Tile0887" type="Sprite2D" parent="Tiles"]
+position = Vector2(140, 260)
+texture = ExtResource("5_h3rij")
+
+[node name="Tile0888" type="Sprite2D" parent="Tiles"]
+position = Vector2(132, 260)
+texture = ExtResource("5_h3rij")
+
+[node name="Tile0889" type="Sprite2D" parent="Tiles"]
+position = Vector2(124, 260)
+texture = ExtResource("5_h3rij")
+
+[node name="Tile0890" type="Sprite2D" parent="Tiles"]
+position = Vector2(116, 260)
+texture = ExtResource("5_h3rij")
+
+[node name="Tile0891" type="Sprite2D" parent="Tiles"]
+position = Vector2(108, 260)
+texture = ExtResource("5_h3rij")
+
+[node name="Tile0892" type="Sprite2D" parent="Tiles"]
+position = Vector2(100, 260)
+texture = ExtResource("5_h3rij")
+
+[node name="Tile0893" type="Sprite2D" parent="Tiles"]
+position = Vector2(92, 260)
+texture = ExtResource("5_h3rij")
+
+[node name="Tile0894" type="Sprite2D" parent="Tiles"]
+position = Vector2(84, 260)
+texture = ExtResource("5_h3rij")
+
+[node name="Tile0895" type="Sprite2D" parent="Tiles"]
+position = Vector2(76, 260)
+texture = ExtResource("5_h3rij")
+
+[node name="Tile0896" type="Sprite2D" parent="Tiles"]
+position = Vector2(68, 260)
+texture = ExtResource("5_h3rij")
+
+[node name="Tile0897" type="Sprite2D" parent="Tiles"]
+position = Vector2(244, 388)
+texture = ExtResource("5_h3rij")
+
+[node name="Tile0898" type="Sprite2D" parent="Tiles"]
+position = Vector2(236, 388)
+texture = ExtResource("5_h3rij")
+
+[node name="Tile0899" type="Sprite2D" parent="Tiles"]
+position = Vector2(228, 388)
+texture = ExtResource("5_h3rij")
+
+[node name="Tile0900" type="Sprite2D" parent="Tiles"]
+position = Vector2(220, 388)
+texture = ExtResource("5_h3rij")
+
+[node name="Tile0901" type="Sprite2D" parent="Tiles"]
+position = Vector2(212, 388)
+texture = ExtResource("5_h3rij")
+
+[node name="Tile0902" type="Sprite2D" parent="Tiles"]
+position = Vector2(204, 388)
+texture = ExtResource("5_h3rij")
+
+[node name="Tile0903" type="Sprite2D" parent="Tiles"]
+position = Vector2(196, 388)
+texture = ExtResource("5_h3rij")
+
+[node name="Tile0904" type="Sprite2D" parent="Tiles"]
+position = Vector2(188, 388)
+texture = ExtResource("5_h3rij")
+
+[node name="Tile0905" type="Sprite2D" parent="Tiles"]
+position = Vector2(180, 388)
+texture = ExtResource("5_h3rij")
+
+[node name="Tile0906" type="Sprite2D" parent="Tiles"]
+position = Vector2(172, 388)
+texture = ExtResource("5_h3rij")
+
+[node name="Tile0907" type="Sprite2D" parent="Tiles"]
+position = Vector2(164, 388)
+texture = ExtResource("5_h3rij")
+
+[node name="Tile0908" type="Sprite2D" parent="Tiles"]
+position = Vector2(156, 388)
+texture = ExtResource("5_h3rij")
+
+[node name="Tile0909" type="Sprite2D" parent="Tiles"]
+position = Vector2(148, 388)
+texture = ExtResource("5_h3rij")
+
+[node name="Tile0910" type="Sprite2D" parent="Tiles"]
+position = Vector2(140, 388)
+texture = ExtResource("5_h3rij")
+
+[node name="Tile0911" type="Sprite2D" parent="Tiles"]
+position = Vector2(132, 388)
+texture = ExtResource("5_h3rij")
+
+[node name="Tile0912" type="Sprite2D" parent="Tiles"]
+position = Vector2(124, 388)
+texture = ExtResource("5_h3rij")
+
+[node name="Tile0913" type="Sprite2D" parent="Tiles"]
+position = Vector2(116, 388)
+texture = ExtResource("5_h3rij")
+
+[node name="Tile0914" type="Sprite2D" parent="Tiles"]
+position = Vector2(108, 388)
+texture = ExtResource("5_h3rij")
+
+[node name="Tile0915" type="Sprite2D" parent="Tiles"]
+position = Vector2(100, 388)
+texture = ExtResource("5_h3rij")
+
+[node name="Tile0916" type="Sprite2D" parent="Tiles"]
+position = Vector2(92, 388)
+texture = ExtResource("5_h3rij")
+
+[node name="Tile0917" type="Sprite2D" parent="Tiles"]
+position = Vector2(84, 388)
+texture = ExtResource("5_h3rij")
+
+[node name="Tile0918" type="Sprite2D" parent="Tiles"]
+position = Vector2(76, 388)
+texture = ExtResource("5_h3rij")
+
+[node name="Tile0919" type="Sprite2D" parent="Tiles"]
+position = Vector2(68, 388)
+texture = ExtResource("5_h3rij")
+
+[node name="Tile0920" type="Sprite2D" parent="Tiles"]
+position = Vector2(60, 388)
+texture = ExtResource("5_h3rij")
+
+[node name="Tile0921" type="Sprite2D" parent="Tiles"]
+position = Vector2(52, 388)
+texture = ExtResource("5_h3rij")
+
+[node name="Tile0922" type="Sprite2D" parent="Tiles"]
+position = Vector2(44, 388)
+texture = ExtResource("5_h3rij")
+
+[node name="Tile0923" type="Sprite2D" parent="Tiles"]
+position = Vector2(36, 388)
+texture = ExtResource("5_h3rij")
+
+[node name="Tile0924" type="Sprite2D" parent="Tiles"]
+position = Vector2(28, 388)
+texture = ExtResource("5_h3rij")
+
+[node name="Tile0925" type="Sprite2D" parent="Tiles"]
+position = Vector2(20, 388)
+texture = ExtResource("5_h3rij")
+
+[node name="Tile0926" type="Sprite2D" parent="Tiles"]
+position = Vector2(12, 388)
+texture = ExtResource("5_h3rij")
+
+[node name="Tile0650" type="Sprite2D" parent="Tiles"]
+position = Vector2(332, 260)
+texture = ExtResource("5_h3rij")
+
+[node name="Tile0651" type="Sprite2D" parent="Tiles"]
+position = Vector2(340, 260)
+texture = ExtResource("5_h3rij")
+
+[node name="Tile0652" type="Sprite2D" parent="Tiles"]
+position = Vector2(348, 260)
+texture = ExtResource("5_h3rij")
+
+[node name="Tile0653" type="Sprite2D" parent="Tiles"]
+position = Vector2(356, 260)
+texture = ExtResource("5_h3rij")
+
+[node name="Tile0654" type="Sprite2D" parent="Tiles"]
+position = Vector2(364, 260)
+texture = ExtResource("5_h3rij")
+
+[node name="Tile0655" type="Sprite2D" parent="Tiles"]
+position = Vector2(372, 260)
+texture = ExtResource("5_h3rij")
+
+[node name="Tile0656" type="Sprite2D" parent="Tiles"]
+position = Vector2(380, 260)
+texture = ExtResource("5_h3rij")
+
+[node name="Tile0665" type="Sprite2D" parent="Tiles"]
+position = Vector2(388, 260)
+texture = ExtResource("5_h3rij")
+
+[node name="Tile0666" type="Sprite2D" parent="Tiles"]
+position = Vector2(396, 260)
+texture = ExtResource("5_h3rij")
+
+[node name="Tile0667" type="Sprite2D" parent="Tiles"]
+position = Vector2(404, 260)
+texture = ExtResource("5_h3rij")
+
+[node name="Tile0668" type="Sprite2D" parent="Tiles"]
+position = Vector2(412, 260)
+texture = ExtResource("5_h3rij")
+
+[node name="Tile0669" type="Sprite2D" parent="Tiles"]
+position = Vector2(420, 260)
+texture = ExtResource("5_h3rij")
+
+[node name="Tile0670" type="Sprite2D" parent="Tiles"]
+position = Vector2(428, 260)
+texture = ExtResource("5_h3rij")
+
+[node name="Tile0671" type="Sprite2D" parent="Tiles"]
+position = Vector2(436, 260)
+texture = ExtResource("5_h3rij")
+
+[node name="Tile0975" type="Sprite2D" parent="Tiles"]
+position = Vector2(441, 260)
+texture = ExtResource("4_tba4h")
+
+[node name="Tile0976" type="Sprite2D" parent="Tiles"]
+position = Vector2(324, 260)
+texture = ExtResource("7_yysgw")
+
+[node name="Tile0977" type="Sprite2D" parent="Tiles"]
+position = Vector2(252, 260)
+texture = ExtResource("8_2db7c")
+
+[node name="Tile0153" type="Sprite2D" parent="Tiles"]
+position = Vector2(252, 388)
+texture = ExtResource("4_tba4h")
+
+[node name="Tile0147" type="Sprite2D" parent="Tiles"]
+position = Vector2(441, 4)
+texture = ExtResource("8_2db7c")
+
+[node name="Tile0150" type="Sprite2D" parent="Tiles"]
+position = Vector2(4, 388)
+texture = ExtResource("3_cte38")
+
+[node name="Tile0148" type="Sprite2D" parent="Tiles"]
+position = Vector2(324, 284)
+texture = ExtResource("6_qirib")
+
+[node name="Tile0149" type="Sprite2D" parent="Tiles"]
+position = Vector2(324, 300)
+texture = ExtResource("6_qirib")
+
+[node name="Tile0151" type="Sprite2D" parent="Tiles"]
+position = Vector2(324, 308)
+texture = ExtResource("6_qirib")
+
+[node name="Tile0152" type="Sprite2D" parent="Tiles"]
+position = Vector2(324, 316)
+texture = ExtResource("6_qirib")
+
+[node name="Tile0154" type="Sprite2D" parent="Tiles"]
+position = Vector2(324, 292)
+texture = ExtResource("6_qirib")
+
+[node name="Tile0155" type="Sprite2D" parent="Tiles"]
+position = Vector2(324, 324)
+texture = ExtResource("6_qirib")
+
+[node name="Tile0156" type="Sprite2D" parent="Tiles"]
+position = Vector2(324, 340)
+texture = ExtResource("6_qirib")
+
+[node name="Tile0157" type="Sprite2D" parent="Tiles"]
+position = Vector2(324, 348)
+texture = ExtResource("6_qirib")
+
+[node name="Tile0158" type="Sprite2D" parent="Tiles"]
+position = Vector2(324, 356)
+texture = ExtResource("6_qirib")
+
+[node name="Tile0159" type="Sprite2D" parent="Tiles"]
+position = Vector2(324, 332)
+texture = ExtResource("6_qirib")
+
+[node name="Tile0160" type="Sprite2D" parent="Tiles"]
+position = Vector2(324, 364)
+texture = ExtResource("6_qirib")
+
+[node name="Tile0161" type="Sprite2D" parent="Tiles"]
+position = Vector2(324, 380)
+texture = ExtResource("6_qirib")
+
+[node name="Tile0162" type="Sprite2D" parent="Tiles"]
+position = Vector2(324, 388)
+texture = ExtResource("6_qirib")
+
+[node name="Tile0163" type="Sprite2D" parent="Tiles"]
+position = Vector2(324, 389)
+texture = ExtResource("6_qirib")
+
+[node name="Tile0164" type="Sprite2D" parent="Tiles"]
+position = Vector2(324, 372)
+texture = ExtResource("6_qirib")
+
+[node name="Door" type="Area2D" parent="."]
+script = ExtResource("15_rm7ey")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Door"]
+position = Vector2(288, 323)
+shape = SubResource("RectangleShape2D_b8t6s")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="TimerLabel" type="Label" parent="CanvasLayer"]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="WinBanner" type="Label" parent="CanvasLayer"]
+visible = false
+offset_left = 506.0
+offset_top = 316.0
+offset_right = 570.0
+offset_bottom = 339.0
+text = "GAGNÉ !"
+
+[node name="LoseBanner" type="Label" parent="CanvasLayer"]
+visible = false
+offset_left = 494.0
+offset_top = 303.0
+offset_right = 534.0
+offset_bottom = 326.0
+text = "Perdu!"
+
+[node name="GameManager" type="Node" parent="." groups=["game_manager"]]
+script = ExtResource("16_xmwx5")
+
+[node name="WinSound" type="AudioStreamPlayer2D" parent="GameManager"]
+stream = ExtResource("17_lvlku")
+
+[node name="LoseSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("18_bn01m")
