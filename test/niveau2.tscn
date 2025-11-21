@@ -158,7 +158,7 @@ size = Vector2(256, 8)
 script = ExtResource("1_35oqr")
 
 [node name="Enemy" parent="." instance=ExtResource("1_iajut")]
-position = Vector2(672, 236)
+position = Vector2(21, 117)
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="." groups=["player"]]
 position = Vector2(128, 322)
